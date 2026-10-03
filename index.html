@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reducir el Ausentismo Escolar</title>
+    <!-- Vue.js CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navegación -->
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="image_e41ebe.png" alt="Logo Prepa en Línea SEP" class="logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#problematica">Problemática</a></li>
+                <li><a href="#objetivos">Objetivos</a></li>
+                <li><a href="#desarrollo">Desarrollo</a></li>
+                <li><a href="#proceso">Proceso Administrativo</a></li>
+            </ul>
+        </nav>
+
+        <!-- Sección 1: Hero / Inicio -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Reducir el ausentismo escolar de menores de 9 a 12 años</h1>
+                <p>En las 3 primarias del Barrio San Antonio Tecomitl, alcaldía Milpa Alta.</p>
+                <div class="author-info">
+                    <p><strong>Norma Angélica Porras Barrios</strong></p>
+                    <p>Grupo M23C1G64-032 | Módulo 23: Tecnologías emergentes</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 2: Problemática y Justificación (Split Layout) -->
+        <section id="problematica" class="section split-layout">
+            <div class="content-left">
+                <h2>La Problemática y Justificación</h2>
+                <ul>
+                    <li><i class="fas fa-exclamation-triangle"></i> Ausentismo vinculado al rezago educativo y vulnerabilidad económica.</li>
+                    <li><i class="fas fa-tractor"></i> Dinámicas agrícolas y comerciales donde participan los menores por costumbre.</li>
+                    <li><i class="fas fa-chart-line"></i> Milpa Alta tiene altos índices de pobreza y marginación.</li>
+                </ul>
+            </div>
+            <div class="content-right">
+                <div class="image-placeholder">                    
+                    <img src="tecomitl.jpg" alt="San Antonio Tecomitl">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 3: Objetivos y Metas (Cards) -->
+        <section id="objetivos" class="section bg-light">
+            <h2>Objetivos y Metas</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header bg-purple">
+                        <h3>Objetivo General</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Pretender que los padres acepten un cambio ante costumbres normalizadas, orientar a la comunidad sobre los derechos de la niñez y capacitar sobre crianza positiva en 3 meses.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-green">
+                        <h3>Metas Principales</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>3 pláticas mensuales a 100 padres.</li>
+                            <li>100 trípticos informativos.</li>
+                            <li>Dinámicas de emociones y juegos cada 15 días.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 4: Desarrollo y Tecnología -->
+        <section id="desarrollo" class="section text-center">
+            <h2>Tecnología y Desarrollo</h2>
+            <div class="tech-icons">
+                <i class="fas fa-video fa-2x tech-icon"></i> Zoom
+                <i class="fas fa-file-word fa-2x tech-icon"></i> Word
+                <i class="fas fa-file-excel fa-2x tech-icon"></i> Excel
+                <i class="fas fa-file-powerpoint fa-2x tech-icon"></i> PowerPoint
+            </div>
+            <p class="mt-2">Uso de tecnología para coordinación interdisciplinaria.</p>
+            
+            <div class="gantt-container mt-2">
+                <div class="image-placeholder gantt-placeholder">                    
+                    <img src="gantt.png" alt="Diagrama de Gantt del Proyecto">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 5: El Proceso Administrativo (Acordeón Vue.js) -->
+        <section id="proceso" class="section bg-light">
+            <h2>Secciones: El Proceso Administrativo</h2>
+            <div class="accordion-container">
+                <div v-for="(fase, index) in fases" :key="index" class="accordion-item">
+                    <button class="accordion-header" @click="toggleFase(index)">
+                        <i :class="fase.icon"></i> {{ fase.titulo }}
+                        <span class="icon-right">
+                            <i class="fas" :class="fase.abierto ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                        </span>
+                    </button>
+                    <div class="accordion-content" v-show="fase.abierto">
+                        <p v-html="fase.descripcion"></p>
+                        <!-- Botón para modal si hay equipo colaborador -->
+                        <button v-if="fase.titulo === 'Dirección'" class="btn-modal" @click="mostrarModal = true">
+                            Ver Perfiles del Equipo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal para Perfiles del Equipo (Vue.js) -->
+        <div v-if="mostrarModal" class="modal-overlay" @click.self="mostrarModal = false">
+            <div class="modal-content">
+                <span class="close-modal" @click="mostrarModal = false">&times;</span>
+                <h3>Equipo Colaborador</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <i class="fas fa-user-tie fa-2x color-purple"></i>
+                        <h4>Director(a)</h4>
+                        <p>Liderazgo pedagógico y gestión administrativa.</p>
+                    </div>
+                    <div class="team-member">
+                        <i class="fas fa-hands-helping fa-2x color-green"></i>
+                        <h4>Trabajadora Social</h4>
+                        <p>Mediación familiar y comunitaria.</p>
+                    </div>
+                    <div class="team-member">
+                        <i class="fas fa-brain fa-2x color-coral"></i>
+                        <h4>Psicóloga</h4>
+                        <p>Intervención en crisis e inteligencia emocional.</p>
+                    </div>
+                    <div class="team-member">
+                        <i class="fas fa-gavel fa-2x color-purple"></i>
+                        <h4>Asesor Jurídico</h4>
+                        <p>Derecho educativo y protocolos de detección.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Proyecto Integrador Módulo 23 - Prepa en Línea SEP</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
