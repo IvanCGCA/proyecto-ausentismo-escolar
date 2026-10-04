@@ -8,7 +8,7 @@ createApp({
                 {
                     titulo: 'La Planificación',
                     icon: 'fas fa-clipboard-list',
-                    abierto: true, // El primero abierto por defecto
+                    abierto: false, 
                     descripcion: 'Etapa que forma parte de la administración. Se definen las bases, como establecer el tema, el objetivo general, los objetivos específicos, y las metas.<br><br><b>Justificación:</b> Se exponen las razones por las que es importante y trascendente resaltando el qué, por qué y para qué se hará.'
                 },
                 {

@@ -1,4 +1,4 @@
-/* Variables de color basadas en logo Prepa en Línea SEP */
+/* Variables de color */
 :root {
     --purple: #6a1b9a; /* Morado principal */
     --green: #cddc39; /* Verde lima secundario */
@@ -75,10 +75,9 @@ body {
     margin-top: 20px;
 }
 
-/* Hero Section */
+/* Inicio Section */
 .hero {
-    background: linear-gradient(135deg, rgba(106, 27, 154, 0.9) 0%, rgba(106, 27, 154, 0.7) 100%), url('https://via.placeholder.com/1200x600?text=Fondo+Hero') no-repeat center center/cover;
-    /* SUGERENCIA: Cambia la URL por una imagen real del barrio o escuela */
+    background: linear-gradient(135deg, rgba(106, 27, 154, 0.9) 0%, rgba(106, 27, 154, 0.7) 100%) no-repeat center center/cover; 
     color: var(--white);
     padding: 150px 20px 100px;
     text-align: center;
@@ -145,7 +144,7 @@ body {
     height: auto;
     display: block;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Le da un toque profesional como de presentación */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
 }
 
 /* Cards */
@@ -193,6 +192,25 @@ body {
     justify-content: center;
     gap: 30px;
     margin-top: 20px;
+}
+
+/* Tech Icons - Actualizado para ser responsivo */
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap; 
+}
+
+/* Agrupa el ícono y el texto para que no se separen al saltar de línea */
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
 }
 
 .tech-icon {
@@ -322,7 +340,7 @@ footer {
     }
     
     .nav-links {
-        display: none; /* Para móvil se puede implementar un menú hamburguesa despues */
+        display: none; 
     }
     
     .cards-container {
